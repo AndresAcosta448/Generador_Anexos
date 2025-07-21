@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Generar Anexos SAP</title>
+</head>
+<body>
+  <h1>Sube tu Árbol de Equipos (.xlsx)</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul style="color:red;">
+        {% for m in messages %}<li>{{ m }}</li>{% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".xlsx" required>
+    <button type="submit">Procesar</button>
+  </form>
+</body>
+</html>
