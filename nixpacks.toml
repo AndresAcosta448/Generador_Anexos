@@ -1,8 +1,12 @@
+[build]
+nixpacksVersion = "1.38.0"
+providers = ["python"]
+
 [phases.setup]
-nixPkgs = ["python311", "gcc", "glibc", "pkg-config", "libffi", "zlib", "openssl", "python311Packages.pip", "python311Packages.setuptools", "python311Packages.wheel"]
+nixPkgs = ["python311", "gcc", "libffi", "zlib", "openssl", "python311Packages.pip", "python311Packages.setuptools", "python311Packages.wheel"]
 
 [phases.install]
-cmds = ["pip install --upgrade pip", "pip install -r requirements.txt"]
+cmds = ["pip install -r requirements.txt"]
 
 [start]
 cmd = "gunicorn app:app"
